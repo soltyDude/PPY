@@ -412,6 +412,70 @@ print("Set to Dictionary:", set_to_dict)
 print("Dictionary to List:", dict_to_list)
 print("Dictionary to Tuple:", dict_to_tuple)
 print("Dictionary to Set:", dict_to_set)
+-------------------------------------------------------------------------------
+SOLUTION:
+# Input
+input_numbers = input("Enter a series of space-separated integers: ")
+
+# Convert Input
+numbers_list = [int(num) for num in input_numbers.split()]
+numbers_tuple = tuple(numbers_list)
+numbers_set = set(numbers_list)
+numbers_dict = {num: num ** 2 for num in numbers_list}
+
+# Manipulate List
+numbers_list.append(10)  # Append 10 to the list
+numbers_list.insert(2, 20)  # Insert 20 at index 2
+numbers_list.remove(8)  # Remove the element 8
+
+# Attempt to Modify Tuple (this will raise an error)
+try:
+    numbers_tuple.append(10)  # Attempting to append 10 to the tuple
+except AttributeError:
+    print("Tuples are immutable and cannot be modified.")
+
+# Set Operations
+new_set = {10, 11, 12}
+set_union = numbers_set.union(new_set)  # Union
+set_intersection = numbers_set.intersection(new_set)  # Intersection
+set_difference = numbers_set.difference(new_set)  # Difference
+
+# Dictionary Operations
+print("Original Dictionary:", numbers_dict)
+numbers_dict[11] = 121  # Add a new key-value pair
+del numbers_dict[8]  # Delete an existing key-value pair
+
+# Type Conversion
+list_to_tuple = tuple(numbers_list)
+list_to_set = set(numbers_list)
+list_to_dict = {num: num ** 2 for num in numbers_list}
+
+tuple_to_list = list(numbers_tuple)
+tuple_to_set = set(numbers_tuple)
+tuple_to_dict = {num: num ** 2 for num in numbers_tuple}
+
+set_to_list = list(numbers_set)
+set_to_tuple = tuple(numbers_set)
+set_to_dict = {num: num ** 2 for num in numbers_set}
+
+dict_to_list = list(numbers_dict.keys())
+dict_to_tuple = tuple(numbers_dict.keys())
+dict_to_set = set(numbers_dict.keys())
+
+# Print Output
+print("List to Tuple:", list_to_tuple)
+print("List to Set:", list_to_set)
+print("List to Dictionary:", list_to_dict)
+print("Tuple to List:", tuple_to_list)
+print("Tuple to Set:", tuple_to_set)
+print("Tuple to Dictionary:", tuple_to_dict)
+print("Set to List:", set_to_list)
+print("Set to Tuple:", set_to_tuple)
+print("Set to Dictionary:", set_to_dict)
+print("Dictionary to List:", dict_to_list)
+print("Dictionary to Tuple:", dict_to_tuple)
+print("Dictionary to Set:", dict_to_set)
+-------------------------------------------------------------------------------------
 
 """8.
 Extend the previous Python program to write the output to a file and perform operations on that file.
