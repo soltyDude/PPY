@@ -699,6 +699,60 @@ with open("output.txt", "a") as file:
 
   The program will generate the list of prime numbers up to 20, perform calculations, and write the results to 'prime_numbers.txt'.
 """
+--------------------------------------------------------------------
+SOLUTION:
+import math
+
+# Function to check if a number is prime
+def is_prime(num):
+    if num <= 1:
+        return False
+    if num == 2:
+        return True
+    if num % 2 == 0:
+        return False
+    for i in range(3, int(math.sqrt(num)) + 1, 2):
+        if num % i == 0:
+            return False
+    return True
+
+# Read the largest integer from the 'output.txt' file
+try:
+    with open('output.txt', 'r') as file:
+        for line in file:
+            if line.startswith('Largest prime number:'):
+                largest_integer = int(line.split(':')[-1].strip())
+                break
+except FileNotFoundError:
+    print("Error: 'output.txt' file not found.")
+    exit()
+
+# Generate a list of all prime numbers up to the largest integer
+prime_numbers = [num for num in range(2, largest_integer + 1) if is_prime(num)]
+
+# Print the list of prime numbers
+print("List of prime numbers up to", largest_integer, ":", prime_numbers)
+
+# Calculate the sum of all prime numbers
+prime_sum = sum(prime_numbers)
+
+# Determine the largest and smallest prime numbers
+largest_prime = max(prime_numbers)
+smallest_prime = min(prime_numbers)
+
+# Check if the largest integer itself is prime
+largest_is_prime = is_prime(largest_integer)
+
+# Write the results to 'prime_numbers.txt'
+with open('prime_numbers.txt', 'w') as file:
+    file.write(f"List of prime numbers: {prime_numbers}\n")
+    file.write(f"Sum of prime numbers: {prime_sum}\n")
+    file.write(f"Largest prime number: {largest_prime}\n")
+    file.write(f"Smallest prime number: {smallest_prime}\n")
+    file.write(f"Is largest integer prime?: {'Yes' if largest_is_prime else 'No'}\n")
+
+print("Results written to 'prime_numbers.txt'")
+------------------------------------------------------------------------
 
 
 
