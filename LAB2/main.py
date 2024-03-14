@@ -588,6 +588,94 @@ This category typically includes other types of statements that don't fall direc
 These are fundamental constructs in Python programming that enable you to control the flow of your program, repeat tasks efficiently, and execute various types of statements to achieve desired functionality.
 
 -------------------------------------------------------------------------------
+SOLUTION:
+# Input
+input_numbers = input("Enter a series of space-separated integers: ")
+
+# Convert Input
+numbers_list = [int(num) for num in input_numbers.split()]
+numbers_tuple = tuple(numbers_list)
+numbers_set = set(numbers_list)
+numbers_dict = {num: num ** 2 for num in numbers_list}
+
+# Manipulate List
+numbers_list.append(10)  # Append 10 to the list
+numbers_list.insert(2, 20)  # Insert 20 at index 2
+numbers_list.remove(8)  # Remove the element 8
+
+# Attempt to Modify Tuple (this will raise an error)
+try:
+    numbers_tuple.append(10)  # Attempting to append 10 to the tuple
+except AttributeError:
+    print("Tuples are immutable and cannot be modified.")
+
+# Set Operations
+new_set = {10, 11, 12}
+set_union = numbers_set.union(new_set)  # Union
+set_intersection = numbers_set.intersection(new_set)  # Intersection
+set_difference = numbers_set.difference(new_set)  # Difference
+
+# Dictionary Operations
+print("Original Dictionary:", numbers_dict)
+numbers_dict[11] = 121  # Add a new key-value pair
+del numbers_dict[8]  # Delete an existing key-value pair
+
+# Type Conversion
+list_to_tuple = tuple(numbers_list)
+list_to_set = set(numbers_list)
+list_to_dict = {num: num ** 2 for num in numbers_list}
+
+tuple_to_list = list(numbers_tuple)
+tuple_to_set = set(numbers_tuple)
+tuple_to_dict = {num: num ** 2 for num in numbers_tuple}
+
+set_to_list = list(numbers_set)
+set_to_tuple = tuple(numbers_set)
+set_to_dict = {num: num ** 2 for num in numbers_set}
+
+dict_to_list = list(numbers_dict.keys())
+dict_to_tuple = tuple(numbers_dict.keys())
+dict_to_set = set(numbers_dict.keys())
+
+# Write Output to File
+student_number = input("Enter your student number: ")
+with open("output.txt", "w") as file:
+    file.write("Student Number: " + student_number + "\n\n")
+    file.write("Original List: " + str(numbers_list) + "\n")
+    file.write("Original Tuple: " + str(numbers_tuple) + "\n")
+    file.write("Original Set: " + str(numbers_set) + "\n")
+    file.write("Original Dictionary: " + str(numbers_dict) + "\n\n")
+    
+    file.write("Manipulated List: " + str(numbers_list) + "\n")
+    file.write("Manipulated Tuple: " + str(numbers_tuple) + "\n")
+    file.write("Union of Set: " + str(set_union) + "\n")
+    file.write("Intersection of Set: " + str(set_intersection) + "\n")
+    file.write("Difference of Set: " + str(set_difference) + "\n")
+    file.write("Updated Dictionary: " + str(numbers_dict) + "\n\n")
+    
+    file.write("List to Tuple: " + str(list_to_tuple) + "\n")
+    file.write("List to Set: " + str(list_to_set) + "\n")
+    file.write("List to Dictionary: " + str(list_to_dict) + "\n")
+    file.write("Tuple to List: " + str(tuple_to_list) + "\n")
+    file.write("Tuple to Set: " + str(tuple_to_set) + "\n")
+    file.write("Tuple to Dictionary: " + str(tuple_to_dict) + "\n")
+    file.write("Set to List: " + str(set_to_list) + "\n")
+    file.write("Set to Tuple: " + str(set_to_tuple) + "\n")
+    file.write("Set to Dictionary: " + str(set_to_dict) + "\n")
+    file.write("Dictionary to List: " + str(dict_to_list) + "\n")
+    file.write("Dictionary to Tuple: " + str(dict_to_tuple) + "\n")
+    file.write("Dictionary to Set: " + str(dict_to_set) + "\n")
+
+# Perform Operations on File
+with open("output.txt", "r") as file:
+    file_content = file.read()
+    num_lines = file_content.count('\n')
+
+# Modify File Content
+# For example, let's add a new line at the end of the file
+with open("output.txt", "a") as file:
+    file.write("\nThis is an additional line added to the end of the file.")
+    -----------------------------------------------------------------------------------------------------------
 
 9.  Utilizing the Largest Integer from output.txt
 
