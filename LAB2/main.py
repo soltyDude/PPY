@@ -188,6 +188,37 @@ print(dictionary)  # Displaying the dictionary
 It's important to remember that both in sets and dictionaries, keys (in the case of dictionaries) and elements (in the case of sets) must be hashable, meaning they must be immutable (e.g., numbers, strings, tuples), and they must have a defined hashing method.
 
 --------------------------------------------------------------------------------
+SOLUTION:
+# Input
+input_numbers = input("Enter a series of space-separated integers: ")
+
+# Convert Input
+numbers_list = [int(num) for num in input_numbers.split()]
+numbers_tuple = tuple(numbers_list)
+
+# Manipulate List
+numbers_list.append(10)  # Append 10 to the list
+numbers_list.insert(2, 20)  # Insert 20 at index 2
+numbers_list.remove(8)  # Remove one element from the list
+
+# Attempt to Modify Tuple (this will raise an error)
+try:
+    numbers_tuple.append(10)  # Attempting to append 10 to the tuple
+except AttributeError:
+    print("Tuples are immutable and cannot be modified.")
+try:
+    numbers_tuple.insert(2, 20)  # Attempting to insert 20 at index 2
+except AttributeError:
+    pass  # Insert operation will also raise an error
+try:
+    numbers_tuple.remove(8)  # Attempting to remove one element from the tuple
+except AttributeError:
+    pass  # Remove operation will also raise an error
+
+# Print Output
+print("Modified list:", numbers_list)
+print("Tuple remains unchanged:", numbers_tuple)
+---------------------------------------------------------------------
 
 6.
 Additionally, introduce sets and dictionaries and perform basic operations on them.
