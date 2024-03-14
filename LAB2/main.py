@@ -50,6 +50,20 @@ Lists are typically used when the elements need to be modified or updated freque
 
 -----------------------------------------------------------------------------
 
+SOLUTION:
+
+# Input
+input_numbers = input("Enter a series of space-separated integers: ")
+
+# Convert Input
+numbers_list = [int(num) for num in input_numbers.split()]
+
+# Sorting
+numbers_list.sort()
+
+# Print Output
+print("Sorted list:", numbers_list)
+
 4.
 Extend the previous Python program to include tuples. Now, in addition to creating a list of integers from user input, the program should also create a tuple of those integers and perform the following operations:
 
